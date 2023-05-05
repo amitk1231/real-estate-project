@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "ptitle": "json-server",
+      "pprice": "423984",
+      "plocation": "Bihar",
+      "pdetails": "Plot available for 2 room set"
+    }
+  ],
+  "signup": [
+    {
+      "id": 1,
+      "name": "Amit Kumar",
+      "email": "amit@gmail.com",
+      "mobile": "8083018331",
+      "password": "some secret"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
