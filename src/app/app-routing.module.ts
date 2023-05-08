@@ -6,21 +6,26 @@ import { PropertiesComponent } from './properties/properties.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'signup', component: SignupComponent
+    path: 'signup',
+    component: SignupComponent,
   },
   {
-    path: 'properties', component: PropertiesComponent
-  }
+    path: 'properties',
+    component: PropertiesComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
