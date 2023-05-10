@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { PropertyService } from '../shared/property.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Property } from './properties.model';
 
 @Component({
@@ -10,20 +14,37 @@ import { Property } from './properties.model';
 })
 export class PropertiesComponent {
   allProperty: any;
-  formValue!: FormGroup;
   propertyModelObj: Property = new Property();
-  showAdd!: boolean;
-  showEdit!: boolean;
+  showAdd: boolean;
+  showEdit: boolean;
+  // formValue: FormGroup<any>;
+  formValue = new FormGroup({
+    ptitle: new FormControl('', [ Validators.required, Validators.pattern('[a-zA-Z0-9 ]*') ]),
+    pprice: new FormControl('', [ Validators.required, Validators.pattern('[0-9.]*') ]),
+    plocation: new FormControl('', [ Validators.required ]),
+    pdetails: new FormControl('', [ Validators.required ]),
+  });
 
-  constructor(private fb: FormBuilder, private api: PropertyService) {}
+  addProperty() {
+    console.warn(this.formValue.value);
+  }
+
+  get ptitle() {
+    return this.formValue.get('ptitle');
+  }
+  get pprice() {
+    return this.formValue.get('pprice');
+  }
+  get plocation() {
+    return this.formValue.get('plocation');
+  }
+  get pdetails() {
+    return this.formValue.get('pdetails');
+  }
+
+  constructor(private api: PropertyService) {}
 
   ngOnInit(): void {
-    this.formValue = this.fb.group({
-      ptitle: ['', Validators.required],
-      pprice: ['', Validators.required],
-      plocation: ['', Validators.required],
-      pdetails: ['', Validators.required],
-    });
     this.getAllProperty();
   }
 

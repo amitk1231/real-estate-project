@@ -2,10 +2,45 @@
   "properties": [
     {
       "id": 1,
-      "ptitle": "Kumar properties",
-      "pprice": "21211213",
-      "plocation": "Noida",
+      "ptitle": "The Royal Mansion",
+      "pprice": "100000000",
+      "plocation": "Wales",
+      "pdetails": "1 independent house"
+    },
+    {
+      "id": 2,
+      "ptitle": "Vinnie Inn",
+      "pprice": "99999999",
+      "plocation": "Sector - 128, Noida",
       "pdetails": "1 home set"
+    },
+    {
+      "id": 3,
+      "ptitle": "The marvellous villa ",
+      "pprice": "236813.321",
+      "plocation": "Brussels",
+      "pdetails": "1 home set"
+    },
+    {
+      "id": 4,
+      "ptitle": "The Grand Villa",
+      "pprice": "18000000",
+      "plocation": "Chennai, India",
+      "pdetails": "3 BHK flat"
+    },
+    {
+      "id": 5,
+      "ptitle": "Diamond Inn Home",
+      "pprice": "123123111",
+      "plocation": "Kolkata",
+      "pdetails": "1 home set"
+    },
+    {
+      "id": 6,
+      "ptitle": "The Golden Palazzo",
+      "pprice": "89888888888",
+      "plocation": "Rome, Italy",
+      "pdetails": "1 independent house"
     }
   ],
   "signup": [

@@ -38,11 +38,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let data of allProperty">
-      <td>{{data.id}}</td>
-      <td>{{data.ptitle}}</td>
-      <td>{{data.pprice | currency: 'INR'}}</td>
-      <td>{{data.plocation}}</td>
-      <td>{{data.pdetails}}</td>
+      <td>{{ data.id }}</td>
+      <td>{{ data.ptitle }}</td>
+      <td>{{ data.pprice | currency : "INR" }}</td>
+      <td>{{ data.plocation }}</td>
+      <td>{{ data.pdetails }}</td>
       <td>
         <button type="submit" class="btn btn-success mx-2">View</button>
         <button
@@ -53,7 +53,9 @@
         >
           Edit
         </button>
-        <button type="submit" (click)="deleteProp(data)" class="btn btn-danger">Delete</button>
+        <button type="submit" (click)="deleteProp(data)" class="btn btn-danger">
+          Delete
+        </button>
       </td>
     </tr>
   </tbody>
@@ -80,7 +82,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="formValue">
+        <form [formGroup]="formValue" (ngSubmit)="addProperty()">
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label"
               >Enter property title:
@@ -92,6 +94,9 @@
               id="formGroupExampleInput"
               placeholder="Property title..."
             />
+            <span style="color: red" *ngIf="ptitle && ptitle.invalid && ptitle.touched"
+              >This field is not valid</span
+            >
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label"
@@ -104,6 +109,9 @@
               id="formGroupExampleInput2"
               placeholder="Property price..."
             />
+            <span style="color: red" *ngIf="pprice && pprice.invalid && pprice.touched"
+              >This field is not valid</span
+            >
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput3" class="form-label"
@@ -116,6 +124,9 @@
               id="formGroupExampleInput3"
               placeholder="Property location..."
             />
+            <span style="color: red" *ngIf="plocation && plocation.invalid && plocation.touched"
+              >This field is not valid</span
+            >
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput4" class="form-label"
@@ -128,15 +139,33 @@
               id="formGroupExampleInput4"
               placeholder="Property details..."
             />
+            <span style="color: red" *ngIf="pdetails && pdetails.invalid && pdetails.touched "
+              >This field is not valid</span
+            >
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" id="clear" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button
+          type="button"
+          id="clear"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
           Clear
         </button>
-        <button type="button" *ngIf="showEdit" class="btn btn-warning">Update Listing</button>
-        <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="addProp()">Add Listing</button>
+        <button type="button" *ngIf="showEdit" class="btn btn-warning">
+          Update Listing
+        </button>
+        <button
+        [disabled] = "formValue.invalid"
+          type="button"
+          *ngIf="showAdd"
+          class="btn btn-primary"
+          (click)="addProp()"
+        >
+          Add Listing
+        </button>
       </div>
     </div>
   </div>
